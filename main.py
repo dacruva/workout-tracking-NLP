@@ -5,7 +5,7 @@ from datetime import datetime
 
 load_dotenv()
 
-END_POINT = "https://trackapi.nutritionix.com/v2/natural/exercise"
+nutri_endpoint = os.getenv("NUTRI_ENDPOINT")
 app_id = os.getenv("APP_ID")
 app_key = os.getenv("APP_KEY")
 sheety_endpoint = os.getenv("SHEETY_ENDPOINT")
@@ -33,7 +33,7 @@ parameters = {
     "height_cm": HEIGHT_CM,
     "age": AGE
 }
-request = requests.post(url=END_POINT, json=parameters, headers=headers)
+request = requests.post(url=nutri_endpoint, json=parameters, headers=headers)
 response = request.json()
 print(f"Call to Nutritionix API: \n {response} \n")
 
